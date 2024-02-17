@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'form_dosen.dart';
-
 import 'database/db_helper_dosen.dart';
 import 'model/dosen.dart';
+
+/**
+ * Nama: Devi Ardiana
+ * NIM: 220101020015
+ * Kelas: SI702
+ * Mata Kuliah: Pemrograman Berbasis Perangkat Bergerak
+ */
 
 class ListDosenPage extends StatefulWidget {
   const ListDosenPage({ Key? key }) : super(key: key);

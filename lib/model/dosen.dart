@@ -1,3 +1,10 @@
+/**
+ * Nama: Devi Ardiana
+ * NIM: 220101020015
+ * Kelas: SI702
+ * Mata Kuliah: Pemrograman Berbasis Perangkat Bergerak
+ */
+
 class Dosen{
   int? id;
   String? nama;

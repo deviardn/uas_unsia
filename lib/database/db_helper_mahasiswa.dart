@@ -4,6 +4,13 @@ import 'package:sqflite/sqflite.dart';
 import 'package:sqflite/sqlite_api.dart';
 import 'package:path/path.dart';
 
+/**
+ * Nama: Devi Ardiana
+ * NIM: 220101020015
+ * Kelas: SI702
+ * Mata Kuliah: Pemrograman Berbasis Perangkat Bergerak
+ */
+
 class DbHelperMahasiswa {
   static final DbHelperMahasiswa _instance = DbHelperMahasiswa._internal();
   static Database? _database;

@@ -3,6 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:tugas_crud_unsia/list_mahasiswa.dart';
 import 'package:tugas_crud_unsia/list_dosen.dart';
 
+/**
+ * Nama: Devi Ardiana
+ * NIM: 220101020015
+ * Kelas: SI702
+ * Mata Kuliah: Pemrograman Berbasis Perangkat Bergerak
+ */
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 

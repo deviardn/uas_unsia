@@ -1,7 +1,12 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_element, non_constant_identifier_names, avoid_types_as_parameter_names, avoid_function_literals_in_foreach_calls, unused_local_variable, unused_import, use_key_in_widget_constructors
-
 import 'package:flutter/material.dart';
 import 'package:tugas_crud_unsia/HomePage.dart';
+
+/**
+ * Nama: Devi Ardiana
+ * NIM: 220101020015
+ * Kelas: SI702
+ * Mata Kuliah: Pemrograman Berbasis Perangkat Bergerak
+ */
 
 void main() {
   runApp(MyApp());

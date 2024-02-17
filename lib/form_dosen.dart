@@ -3,6 +3,12 @@ import 'package:flutter/material.dart';
 import 'database/db_helper_dosen.dart';
 import 'model/dosen.dart';
 
+/**
+ * Nama: Devi Ardiana
+ * NIM: 220101020015
+ * Kelas: SI702
+ * Mata Kuliah: Pemrograman Berbasis Perangkat Bergerak
+ */
 
 class FormDosen extends StatefulWidget {
   final Dosen? dosen;
