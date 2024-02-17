@@ -4,8 +4,8 @@ import 'package:sqflite/sqflite.dart';
 import 'package:sqflite/sqlite_api.dart';
 import 'package:path/path.dart';
 
-class DbHelper {
-  static final DbHelper _instance = DbHelper._internal();
+class DbHelperMahasiswa {
+  static final DbHelperMahasiswa _instance = DbHelperMahasiswa._internal();
   static Database? _database;
 
   final String tableName = 'tableMahasiswa';
@@ -15,8 +15,8 @@ class DbHelper {
   final String columnEmail = 'email';
   final String columnProdi = 'prodi';
 
-  DbHelper._internal();
-  factory DbHelper() => _instance;
+  DbHelperMahasiswa._internal();
+  factory DbHelperMahasiswa() => _instance;
 
   //cek apakah database ada
   Future<Database?> get _db  async {

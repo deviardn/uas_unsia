@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'database/db_helper.dart';
+import 'database/db_helper_mahasiswa.dart';
 import 'model/mahasiswa.dart';
 
 
@@ -14,7 +14,7 @@ class FormMahasiswa extends StatefulWidget {
 }
 
 class _FormMahasiswaState extends State<FormMahasiswa> {
-  DbHelper db = DbHelper();
+  DbHelperMahasiswa db = DbHelperMahasiswa();
 
   TextEditingController? nama;
   TextEditingController? nip;

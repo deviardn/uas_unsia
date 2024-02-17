@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
-import 'form_mahasiswa.dart';
+import 'form_dosen.dart';
 
-import 'database/db_helper_mahasiswa.dart';
-import 'model/mahasiswa.dart';
+import 'database/db_helper_dosen.dart';
+import 'model/dosen.dart';
 
-class ListMahasiswaPage extends StatefulWidget {
-  const ListMahasiswaPage({ Key? key }) : super(key: key);
+class ListDosenPage extends StatefulWidget {
+  const ListDosenPage({ Key? key }) : super(key: key);
 
   @override
-  _ListMahasiswaPageState createState() => _ListMahasiswaPageState();
+  _ListDosenPageState createState() => _ListDosenPageState();
 }
 
-class _ListMahasiswaPageState extends State<ListMahasiswaPage> {
-  List<Mahasiswa> listMahasiswa = [];
-  DbHelperMahasiswa db = DbHelperMahasiswa();
+class _ListDosenPageState extends State<ListDosenPage> {
+  List<Dosen> listDosen = [];
+  DbHelperDosen db = DbHelperDosen();
 
   @override
   void initState() {
-    _getAllMahasiswa();
+    _getAllDosen();
     super.initState();
   }
 
@@ -27,20 +27,20 @@ class _ListMahasiswaPageState extends State<ListMahasiswaPage> {
 
       appBar: AppBar(
         title: Center(
-          child: Text("List Mahasiswa Unsia"),
+          child: Text("List Dosen Unsia"),
         ),
       ),
       body: ListView.builder(
-          itemCount: listMahasiswa.length,
+          itemCount: listDosen.length,
           itemBuilder: (context, index) {
-            Mahasiswa mahasiswa = listMahasiswa[index];
+            Dosen dosen = listDosen[index];
             return Padding(
               padding: const EdgeInsets.only(
                   top: 10
               ),
               child: ListTile(
                 title: Text(
-                    '${mahasiswa.nama}'
+                    '${dosen.nama}'
                 ),
                 subtitle: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -50,20 +50,8 @@ class _ListMahasiswaPageState extends State<ListMahasiswaPage> {
                       padding: const EdgeInsets.only(
                         top: 8,
                       ),
-                      child: Text("Email: ${mahasiswa.email}"),
+                      child: Text("Email: ${dosen.email}"),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(
-                        top: 8,
-                      ),
-                      child: Text("Phone: ${mahasiswa.nip}"),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(
-                        top: 8,
-                      ),
-                      child: Text("Prodi: ${mahasiswa.prodi}"),
-                    )
                   ],
                 ),
                 trailing:
@@ -74,7 +62,7 @@ class _ListMahasiswaPageState extends State<ListMahasiswaPage> {
                       // button edit
                       IconButton(
                           onPressed: () {
-                            _openFormEdit(mahasiswa);
+                            _openFormEdit(dosen);
                           },
                           icon: Icon(Icons.edit)
                       ),
@@ -89,7 +77,7 @@ class _ListMahasiswaPageState extends State<ListMahasiswaPage> {
                               child: Column(
                                 children: [
                                   Text(
-                                      "Yakin ingin Menghapus Data ${mahasiswa.nama}"
+                                      "Yakin ingin Menghapus Data ${dosen.nama}"
                                   )
                                 ],
                               ),
@@ -97,7 +85,7 @@ class _ListMahasiswaPageState extends State<ListMahasiswaPage> {
                             actions: [
                               TextButton(
                                   onPressed: (){
-                                    _deleteMahasiswa(mahasiswa, index);
+                                    _deleteDosen(dosen, index);
                                     Navigator.pop(context);
                                   },
                                   child: Text("Ya")
@@ -131,39 +119,39 @@ class _ListMahasiswaPageState extends State<ListMahasiswaPage> {
   }
 
   //mengambil semua data
-  Future<void> _getAllMahasiswa() async {
-    var list = await db.getAllMahasiswa();
+  Future<void> _getAllDosen() async {
+    var list = await db.getAllDosen();
     setState(() {
-      listMahasiswa.clear();
-      list!.forEach((mahasiswa) {
-        listMahasiswa.add(Mahasiswa.fromMap(mahasiswa));
+      listDosen.clear();
+      list!.forEach((dosen) {
+        listDosen.add(Dosen.fromMap(dosen));
       });
     });
   }
 
   //hapus data
-  Future<void> _deleteMahasiswa(Mahasiswa mahasiswa, int position) async {
-    await db.deleteMahasiswa(mahasiswa.id!);
+  Future<void> _deleteDosen(Dosen dosen, int position) async {
+    await db.deleteDosen(dosen.id!);
     setState(() {
-      listMahasiswa.removeAt(position);
+      listDosen.removeAt(position);
     });
   }
 
   // halaman tambah
   Future<void> _openFormCreate() async {
     var result = await Navigator.push(
-        context, MaterialPageRoute(builder: (context) => FormMahasiswa()));
+        context, MaterialPageRoute(builder: (context) => FormDosen()));
     if (result == 'save') {
-      await _getAllMahasiswa();
+      await _getAllDosen();
     }
   }
 
   //halaman edit
-  Future<void> _openFormEdit(Mahasiswa mahasiswa) async {
+  Future<void> _openFormEdit(Dosen dosen) async {
     var result = await Navigator.push(context,
-        MaterialPageRoute(builder: (context) => FormMahasiswa(mahasiswa: mahasiswa)));
+        MaterialPageRoute(builder: (context) => FormDosen(dosen: dosen)));
     if (result == 'update') {
-      await _getAllMahasiswa();
+      await _getAllDosen();
     }
   }
 }
